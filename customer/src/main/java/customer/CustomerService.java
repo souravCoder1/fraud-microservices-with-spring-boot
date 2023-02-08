@@ -1,11 +1,20 @@
 package customer;
 
+import fraud.FraudCheckResponse;
+import lombok.AllArgsConstructor;
+import fraud.FraudClient;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+
 
 @Service
-public record CustomerService(CustomerRepository customerRepository,
-                              RestTemplate restTemplate) {
+@AllArgsConstructor
+public class CustomerService {
+
+
+    private final CustomerRepository customerRepository;
+    private final FraudClient fraudClient;
+
+    // RestTemplate restTemplate;
     public void register(CustomerRequest customerRequest) {
         Customer customer = Customer.builder()
                 .firstName(customerRequest.firstName())
@@ -16,12 +25,16 @@ public record CustomerService(CustomerRepository customerRepository,
         customerRepository.saveAndFlush(customer);
         //customerRepository.save(customer);
 
-        FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
+        FraudCheckResponse fraudCheckResponse = fraudClient.isFraudster(customer.getId());
+        
+        /*FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
                // "http://localhost:8081/api/v1/fraud-check/{customerId}",
                 "http://FRAUD/api/v1/fraud-check/{customerId}",
                 FraudCheckResponse.class,
                 customer.getId()
-        );
+        );*/
+
+
 
         if (fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("Fraudster");

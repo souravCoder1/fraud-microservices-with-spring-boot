@@ -7,6 +7,10 @@ spring:
     password: root123
     url: jdbc:postgresql://localhost:5432/fraud
     username: postgres
+
+  cloud:
+    compatibility-verifier:
+      enabled: false
   jpa:
     hibernate:
       ddl-auto: create-drop
