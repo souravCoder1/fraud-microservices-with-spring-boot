@@ -10,9 +10,8 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class CustomerService {
 
-
-    private final CustomerRepository customerRepository;
-    private final FraudClient fraudClient;
+    private CustomerRepository customerRepository;
+    private FraudClient fraudClient;
 
     // RestTemplate restTemplate;
     public void register(CustomerRequest customerRequest) {
