@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import clients.fraud.FraudClient;
 import clients.notification.NotificationRequest;
 import org.springframework.stereotype.Service;
-
-
 @Service
 @AllArgsConstructor
 public class CustomerService {
