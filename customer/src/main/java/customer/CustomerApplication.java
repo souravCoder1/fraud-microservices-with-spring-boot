@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySources;
             "customer"
         })
 @EnableFeignClients(
-        basePackages = "fraud"
+        basePackages = "clients"
 )
 @PropertySources({
         @PropertySource("classpath:clients-${spring.profiles.active}.properties")

@@ -1,4 +1,4 @@
-package notification;
+package clients.notification;
 
 public record NotificationRequest(
         Integer toCustomerId,

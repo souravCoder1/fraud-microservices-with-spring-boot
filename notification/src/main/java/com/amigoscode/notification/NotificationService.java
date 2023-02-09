@@ -1,7 +1,7 @@
 package com.amigoscode.notification;
 
 import lombok.AllArgsConstructor;
-import notification.NotificationRequest;
+import clients.notification.NotificationRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
