@@ -1,4 +1,4 @@
-package com.amigoscode.amqp;
+package amqp;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

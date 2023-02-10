@@ -1,4 +1,4 @@
-package com.amigoscode.notification;
+package notification;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
