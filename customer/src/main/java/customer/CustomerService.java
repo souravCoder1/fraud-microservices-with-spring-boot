@@ -1,5 +1,6 @@
 package customer;
 
+import amqp.RabbitMQMessageProducer;
 import clients.fraud.FraudCheckResponse;
 import clients.notification.NotificationClient;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ public class CustomerService {
     private CustomerRepository customerRepository;
     private FraudClient fraudClient;
     private final NotificationClient notificationClient;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
     // RestTemplate restTemplate;
     public void register(CustomerRequest customerRequest) {
@@ -42,13 +44,15 @@ public class CustomerService {
 
         // todo: send notification
         // todo: make it async. i.e add to queue
-        notificationClient.sendNotification(
-                new NotificationRequest(
-                        customer.getId(),
-                        customer.getEmail(),
-                        String.format("Hi %s, welcome to Amigoscode...",
-                                customer.getFirstName())
-                )
+        NotificationRequest notificationRequest = new NotificationRequest(
+                customer.getId(),
+                customer.getEmail(),
+                String.format("Hi %s, welcome to Amigoscode...",
+                        customer.getFirstName())
         );
+        /*notificationClient.sendNotification(
+                notificationRequest
+        );*/
+        rabbitMQMessageProducer.publish(notificationRequest, "internal.exchange", "internal.notification.routing-key");
     }
 }
