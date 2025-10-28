@@ -3,7 +3,7 @@ services:
     container_name: postgres
     image: postgres
     environment:
-      POSTGRES_USER: amigoscode
+      POSTGRES_USER: sourav
       POSTGRES_PASSWORD: password
       PGDATA: /data/postgres
     volumes:
@@ -43,7 +43,7 @@ services:
     networks:
       - spring
 #  eureka-server:
-#    image: amigoscode/eureka-server:latest
+#    image: sourav/eureka-server:latest
 #    container_name: eureka-server
 #    ports:
 #      - "8761:8761"
@@ -54,7 +54,7 @@ services:
 #    depends_on:
 #      - zipkin
 #  apigw:
-#    image: amigoscode/apigw:latest
+#    image: sourav/apigw:latest
 #    container_name: apigw
 #    ports:
 #      - "8083:8083"
@@ -66,7 +66,7 @@ services:
 #      - zipkin
 #      - eureka-server
 #  customer:
-#    image: amigoscode/customer:latest
+#    image: sourav/customer:latest
 #    container_name: customer
 #    ports:
 #      - "8080:8080"
@@ -80,7 +80,7 @@ services:
 #      - postgres
 #      - rabbitmq
 #  fraud:
-#    image: amigoscode/fraud:latest
+#    image: sourav/fraud:latest
 #    container_name: fraud
 #    ports:
 #      - "8081:8081"
@@ -94,7 +94,7 @@ services:
 #      - postgres
 #      - rabbitmq
 #  notification:
-#    image: amigoscode/notification:latest
+#    image: sourav/notification:latest
 #    container_name: notification
 #    ports:
 #      - "8082:8082"
