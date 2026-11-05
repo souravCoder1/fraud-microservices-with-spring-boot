@@ -77,6 +77,8 @@ The customer service checks the registration with the fraud service and publishe
 
 Service configuration is in each module's `src/main/resources` directory. Docker-specific profiles are provided where applicable. The checked-in Compose and application configuration is for local learning only: replace hard-coded credentials, use secrets or environment-based configuration, and review database schema settings before deploying anywhere beyond a disposable development environment.
 
-## License
+## Screenshots
 
-No license file is currently included in this repository. Check with the maintainers before reusing or distributing the code.
+![alt text](./144061535-7a42e85b-59d6-4f7f-9c35-18a48b49e6de%20(1).png)
+
+![Screenshot (2)](https://github.com/user-attachments/assets/158a6b98-0b8a-4955-af1b-f90aedd13979)
